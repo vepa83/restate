@@ -1,0 +1,246 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+{{chosen_kind}}
+{% endblock title %}
+
+{% block header %}
+<section class="header_part">
+    <div class="header_wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu"
+                        aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'items:home_url' %}">House-Agenda</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="mymenu">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'accounts:profile' %}">
+                                Profile
+                            </a>
+                        </li>
+                        <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'accounts:register_url' %}">Register </a></li>
+                        <li><a href="{% url 'accounts:login_url' %}">Login </a></li>
+                        {% endif %}
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">
+                                Kind
+                                <span class="sr-only">(current)</span>
+                                <span class="caret"></span>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'items:kind_filter_url' 'apartment' %}">apartment</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'house' %}">house</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'penthouse' %}">penthouse</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'condo' %}">condo</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'studio' %}">studio</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">Location
+                                <span class="caret"></span>
+                                
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% for location in locations %}
+                                <li><a href="{% url 'items:location_filter_url' location.id %}">{{location.name}}</a></li>
+                                {% endfor %}
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">Category
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'items:category_filter_url' 'sell' %}">sell</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'buy' %}">buy</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'change' %}">change</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'rent' %}">rent</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- 
+                                <div class="text_on_header_image">
+                                    
+                                    <div class="text_on_header_image_inner">
+                                    
+                                        <div style="padding-top: 15px; padding-right: 30px;">                   
+                                            <p>"Proper house to live is happiness"</p>
+                                            <p>Someone Famous</p>
+                                        </div>
+                
+                                    </div>
+                
+                                </div>
+                -->
+    </div>
+    {% include 'search.html' %}
+</section>
+{% endblock header %}
+
+
+
+{% block content %}
+<section class="content_part">
+    <div class="container-fluid">
+        <div class="block_header">
+            <h4 class="block_header_title">{{chosen_kind}} {{amount}} ads found</h4>
+        </div>
+
+        <div class="row">
+
+            {% for item in item_list %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <a href="{% url 'items:detail_url' item.id %}" class="adds_anchor">
+
+                    {% if item.is_vip == True %}
+                    <h4 class="vip">
+                        <span class="glyphicon glyphicon-star"></span>
+
+                        <!-- max 4 words -->
+                        {{item.title|truncatechars:18}}
+                    </h4>
+                    {% else %}
+                    <h4 class="nonvip">
+                        <!-- max 4 words -->
+                        {{item.title|truncatechars:18}}
+                    </h4>
+
+                    {% endif %}
+
+
+                </a>
+                <div class="main_image_wrapper">
+                    <div class="adds_image_thumb">
+
+                        {% for image in image_list %}
+
+                        {% if image.item_id == item.id %}
+                        <img class="adds_image_thumb_img" src="{{image.thumbnail.url}}" alt="{{image.alt}}">
+                        {% endif %}
+
+
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="on_thumb_text">
+
+                        <!-- max 3 words -->
+                        {{item.category}}
+                        ,
+                        {{item.kind}}
+                        ,
+                        {{item.age}}
+                    </div>
+                    <div class="on_thumb_text2">
+
+                        <!-- max 3 words -->
+                        {{item.room}},
+                        <span class="glyphicon glyphicon-usd"></span>
+
+                        {{item.price }}
+                    </div>
+                    <div class="like">
+
+                        {% if user.is_authenticated %}
+
+                        {% if item.has_like == 0 %}
+                        <div class="like_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% else %}
+                        <div class="liked_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="like_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <h5><span class="glyphicon glyphicon-map-marker"></span> {{item.location}}</h5>
+                <div class="adds_text_location">
+                    {{item.address}}
+                </div>
+                <h5><span class="glyphicon glyphicon-pencil"></span> {{item.title}}</h5>
+                <div class="adds_text_description">
+                    {{item.description}}
+                </div>
+                <h5 class="">
+                    <span class="glyphicon glyphicon-flag">
+                    </span>
+                    Status:
+
+                    {% if item.status == 'open' %}
+                    <span class="label label-success">
+                        {{item.status}}
+                    </span>
+                    {% elif item.status == 'closed' %}
+                    <span class="label label-danger">
+                        {{item.status}}
+                    </span>
+                    {% elif item.status == 'frozen' %}
+                    <span class="label label-primary">
+                        {{item.status}}
+                    </span>
+                    {% endif %}
+
+
+                </h5>
+
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="block_pagination">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if page.has_previous %}
+                    <li>
+                        <a href="?page={{page.previous_page_number}}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    </li>
+                    {% endif %}
+
+                    <li><a href="#">{{page.number}}</a></li>
+
+                    {% if page.has_next %}
+                    <li>
+                        <a href="?page={{page.next_page_number}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+{% endblock content %}

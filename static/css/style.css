@@ -1,0 +1,402 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    min-width: 400px;
+    background: #f7f7c5;
+}
+@font-face{
+    font-family: scriptina;
+    src: url(../fonts/scriptina/SCRIPTIN.ttf)
+}
+
+@font-face{
+    font-family: scriptinab;
+    src: url(../fonts/scriptina/SCRIPALT.ttf)
+}
+
+@font-face{
+    font-family: blu_fires;
+    src: url(../fonts/blue_fires/bluefires_sample.ttf)
+}
+@font-face{
+    font-family: blu_fires2;
+    src: url(../fonts/blue_fires/bluefires_sample.otf)
+}
+.header_wrapper{
+    min-height: 450px;
+    background-image: url(../images/header_img.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    opacity: 1;
+    z-index: 2;
+}
+.text_on_header_image{
+    display: block;
+    position: absolute;
+    width:100%;
+    right: 20px;
+    top: 320px;
+    opacity: 1;
+    color: #fffd8c;
+    padding: 20px 15px 9px 0;
+    text-align: right;
+    z-index: 1;
+    margin-right: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: 20px;
+    font-family: 'blu_fires', 'blu_fires2';
+    box-shadow: 3px 3px 8px 2px #808080;
+    background: linear-gradient(90deg,#ff7301,#4d1800);
+}
+.text_on_header_image_inner{
+    display: block;
+    position: relative;
+    width:100%;
+    height: 80%;
+    margin-top: -8px;
+    margin-bottom: 2px;
+    background-image: url(../images/sample.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 0.7;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.block_header_like{
+    display: block;
+    position: relative;
+    background: transparent;
+    color: #000000;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+.block_header{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90deg, #8cff76, #015814);
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.block_header_title{
+    line-height: 40px;
+    margin-left: 20px;
+    font-size: 25px;
+    color: #000000;
+}
+
+.footer_part{
+    margin-top: 20px;
+}
+.footer_wrapper{
+    background-image: url(../images/footer_img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+}
+.inner_footer_wrapper{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 80%;
+    opacity: .6;
+    background: #000000;
+    color:  white;
+    padding:25px 10px 15px 10px;
+}
+.copyright{
+    display: block;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(90deg,#ff7301,#4d1800);
+    opacity: 1;
+    color: #fffd8c;
+    font-size: 24px;
+    font-family: 'blu_fires', 'blu_fires2';
+    height: 20%;
+}
+.copyright_inner{
+    line-height: 120px;
+    width: 100%;
+    background-image: url(../images/sample.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+.main_image_wrapper{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.adds_image_thumb_detail{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 15px;
+    background-color: transparent;
+    overflow: hidden;
+}
+.adds_image_thumb{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 15px;
+    background-color: black;
+    overflow: hidden;
+}
+.adds_image_thumb_img{
+    display: block;
+    position:relative;
+    width:auto;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.detail{
+    display: block;
+    position: relative;
+    height: 95%;
+    margin: 5px auto;
+    background-color: #000000;
+    box-shadow: 3px 4px 12px 2px #202020;
+    overflow: hidden;
+    cursor: pointer;
+}
+.detail:hover{
+    border-radius: 25px;
+}
+.adds_image_thumb.detail:hover{
+    border: 3px #fff89d solid;
+    box-shadow: 3px 4px 12px 2px #18038f;
+    cursor: pointer;
+}
+
+.like{
+    display: block;
+    position: absolute;
+    top:5%;
+    right:20%;
+    font-size: 25px;
+    background-color:transparent;
+    cursor: pointer;
+    color: white;
+}
+.like:hover{
+    color: #2f00ff;
+}
+
+.liked{
+    display: block;
+    position: absolute;
+    top:5%;
+    right:5%;
+    font-size: 25px;
+    background-color:transparent;
+    color: #1eff00;
+    cursor: pointer;
+}
+.liked:hover{
+    color: #2f00ff;
+}
+.on_thumb_text{
+    display: block;
+    position: absolute;
+    bottom:30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg,#3802fd,#000000);
+    padding: 3px 10px;
+    width:100%;
+    text-align: right;
+    opacity: 0.9;
+}
+.on_thumb_text2{
+    display: block;
+    position: absolute;
+    bottom:0;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg,#660101,#000000);
+    padding: 3px 10px;
+    width:100%;
+    text-align: right;
+    opacity: 0.9;
+}
+
+.vip{
+    background: #199400;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    border-top-right-radius: 17px;
+/*    border-bottom-right-radius: 17px; */
+}
+.vip:hover{
+    background: #125705;
+}
+
+.nonvip{
+    background: #4b4b4b;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    border-top-right-radius: 17px;
+/*    border-bottom-right-radius: 17px; */
+}
+.nonvip:hover{
+    background: #2b2b2b;
+}
+.status{
+    background: #ff0000;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+}
+.status_nonvip{
+    background: #4b4b4b;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+}
+.adds_text_location{
+    display: block;
+    position: relative;
+    text-align: justify;
+    height: 50px;
+    overflow: hidden; 
+}
+.adds_text_description{
+    display: block;
+    position: relative;
+    text-align: justify;
+    height: 50px;
+    overflow: hidden; 
+}
+.adds_anchor{
+    color: white;
+    text-decoration: none;
+}
+.adds_anchor:hover{
+    color: white;
+    text-decoration: none;
+}
+.adds_anchor:any-link{
+    color: white;
+    text-decoration: none;
+}
+.detail_adds_text{
+    margin-top: 50px;
+    display: block;
+    position: relative;
+    text-align: justify;
+    min-height: 200px;
+}
+
+.contact_item{
+    padding: 10px;
+}
+.centering{
+    text-align: center;
+}
+.detail_contact_section{
+    background-color: #4b4b4b;
+    color: #ffffff; 
+}
+
+.search_toggle_anchor:any-link{
+    display: block;
+    position: relative;
+    color:#ffffff;
+    background-color: #162cf3;
+    text-decoration: none;
+    margin-bottom: 0px;
+}
+.search_toggle_anchor{
+    color:#ffffff;
+    background-color: #162cf3;
+    text-decoration: none;
+}
+.search_toggle_anchor:hover{
+    color:#ffffff;
+    background-color: #162cf3;
+    text-decoration: none;
+}
+.search_toggle{
+    display: block;
+    position: relative;
+    background: linear-gradient(90deg,#000000,#4b4b4b,#000000);
+    padding: 8px;
+    color:white;
+}
+.navbar-form{
+    margin:0;
+    padding:0;
+}
+.form-control{
+    margin-bottom: 0px;
+}
+.like_anchor{
+    background-color: transparent;
+    color:white;
+}
+.like_anchor:hover{
+    background-color: transparent;
+    color:#f80404;
+}
+.like_anchor_detail{
+    background-color: transparent;
+    color:#666666;
+}
+.like_anchor_detail:hover{
+    background-color: transparent;
+    color:#e60f0f;
+}
+
+.liked_anchor_detail{
+    background-color: transparent;
+    color:#f30202;
+}
+.liked_anchor_detail:hover{
+    background-color: transparent;
+    color:#5e5e5e;
+}
+
+
+.liked_anchor{
+    background-color: transparent;
+    color:#f80404;
+}
+.liked_anchor:hover{
+    background-color: transparent;
+    color:white;
+}
+
+.block_pagination{
+    display: block;
+    position: relative;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}

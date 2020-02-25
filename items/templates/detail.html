@@ -1,0 +1,182 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    {{item.title}}
+{% endblock title %}
+    
+
+{% block content %}
+<section class="content_part">
+    <div class="container-fluid">
+        <div class="block_header_like">
+            
+            {% if user.is_authenticated %}
+                
+                {% for like in like_list %}
+                    
+                    {% if like.user.id == user.id %}
+                        <a class="liked_anchor_detail" href="{% url 'items:like_ad_detail_url' item.id %}">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </a>
+                    
+                    {% else %}
+                        <a class="like_anchor_detail" href="{% url 'items:like_ad_detail_url' item.id %}">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </a>
+                    {% endif %}
+                        
+                    
+                {% empty %}
+                    <a class="like_anchor_detail" href="{% url 'items:like_ad_detail_url' item.id %}">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                {% endfor %}
+                    
+            {% else %}
+                <div class="like_anchor_detail" href="">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </div>
+            {% endif %}
+                
+            
+        </div>
+        <div class="block_header">
+            <a href="#detail_images" data-toggle="collapse" class="adds_anchor">
+                <h4 class="block_header_title">
+                    {{item.title}}
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <span class="caret"></span>
+                </h4>
+            </a>
+        </div>
+        <div id="detail_images" class="collapse">
+            <div class="row">
+                
+                {% for image in image_list %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="adds_image_thumb_detail">
+                        <a href="{{image.image.url}}" data-lightbox="{{item.id}}" data-title="{{image.alt}}">
+                            <img class="detail" src="{{image.thumbnail.url}}" alt="{{image.alt}}">
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+                    
+                
+            </div>
+        </div>
+        
+        <div class="row">
+            <h3>Description</h3>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p class="detail_adds_text">
+                    {{item.description}}
+                </p>
+            </div>
+        </div>
+        <div class="row detail_contact_section">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact_item centering">
+                <h5>
+                    <span class="glyphicon glyphicon-tag"></span>
+                    Price: {{item.price}}
+                </h5>
+                
+                <h5>
+                    <span class="glyphicon glyphicon-time"></span>
+                    Age: {{item.age}}
+                </h5>
+                
+                <h5>
+                    <span class="glyphicon glyphicon-tent"></span>
+                    Kind: {{item.kind}}
+                </h5>
+                
+                <h5>
+                    <span class="glyphicon glyphicon-th-large"></span>
+                    Rooms: {{item.room}}
+                </h5>
+                
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact_item centering">
+                <h5>
+                    <span class="glyphicon glyphicon-user"></span>
+                    Contacts:
+                </h5>
+                <span class="glyphicon glyphicon-text-background"></span> Publisher: {{item.user.additional.name}} <br>
+                <span class="glyphicon glyphicon-earphone"></span> Phone: {{item.user.additional.telephone}} <br>
+                <span class="glyphicon glyphicon-envelope"></span> email: {{item.user.additional.email}} <br>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact_item centering">
+                <h5>
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    {{item.location}}
+                </h5>
+                <p>
+                    <span class="glyphicon glyphicon-align-center"></span>
+                    {{item.address}}
+                </p>
+            </div>
+        </div>
+        <div class="block_header">
+            <a href="#comments" data-toggle="collapse" class="adds_anchor">
+                <h4 class="block_header_title">
+        
+                    comments
+        
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <span class="caret"></span>
+                </h4>
+            </a>
+        </div>
+        <div id="comments" class="collapse">
+            
+            {% if user.is_authenticated %}
+            <div class="row">
+                <form class="form-group" action="{% url 'items:add_comment' item.id %}" method='post'>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
+            
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                            <div class="profile_adds_description">
+                                <textarea name="text" id="" class="form-control text_area" placeholder="type your comment here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
+            
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="profile_adds_change_button">
+                            <button type="submit" class="btn btn-md btn-primary">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                Add comment
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+                
+            
+            {% for comment in comment_list %}
+            <div class="row">
+            
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                    <span style="text-align:center;">{{comment.user.additional.name}}</span>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-xs-7">
+                    <p style="text-align:justify;">
+                        {{comment.text}}
+                    </p>
+                </div>
+            
+            </div>
+            {% endfor %}
+                
+            
+        </div>
+    </div>
+</section>
+{% endblock content %}
