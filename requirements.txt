@@ -14,3 +14,5 @@ django-simple-captcha
 django-bootstrap3
 django-cleanup
 easy-thumbnails
+djangorestframework
+django-cors-headers
