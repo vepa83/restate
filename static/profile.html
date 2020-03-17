@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/profile.css">
+
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <section class="header_part">
+            <div class="header_wrapper">            
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu" aria-expanded="false">
+                                <span class="sr-only"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html">House-Agenda</a>
+                            <a class="navbar-brand" href="#">User01</a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="mymenu">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="#">Logout <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#footer_part">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Kind 
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">apartment</a></li>
+                                        <li><a href="#">house</a></li>
+                                        <li><a href="#">penthouse</a></li>
+                                        <li><a href="#">condo</a></li>    
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Category 
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">sell</a></li>
+                                        <li><a href="#">buy</a></li>
+                                        <li><a href="#">change</a></li>
+                                        <li><a href="#">rent</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+<!--
+                <div class="text_on_header_image">
+                    <div class="text_on_header_image_inner">
+                        <div style="padding-top: 15px; padding-right: 30px;">                   
+                            <p>"Proper house to live is happiness"</p>
+                            <p>Someone Famous</p>
+                        </div>
+                    </div>
+                </div>
+-->
+            </div>
+        </section>
+        <section class="content_part">
+<!-- single adds of user-->
+            <div class="container-fluid adds_block02">
+
+                <a href="#profile_form01" data-toggle="collapse" class="images_toggle_anchor">
+                    <div class="images_toggle">
+                        <h4 class="">
+                            2 beds
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="caret"></span>
+                        </h4>
+                    </div>
+                </a>
+
+
+                <div id="profile_form01" class="collapse">
+                    <form class="form-group" action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                                   
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        title:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            1 bed
+                                        </option>
+                                        <option value="0">
+                                            2 beds
+                                        </option>
+                                        <option value="0">
+                                            3 beds
+                                        </option>
+                                        <option value="0">
+                                            4 beds
+                                        </option>
+                                        <option value="0">
+                                        more than 4 beds
+                                        </option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        category:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            sell
+                                        </option>
+                                        <option value="0">
+                                            buy
+                                        </option>
+                                        <option value="0">
+                                            change
+                                        </option>
+                                        <option value="0">
+                                            rent
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Kind:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            apartment
+                                        </option>
+                                        <option value="0">
+                                            house
+                                        </option>
+                                        <option value="0">
+                                            penthouse
+                                        </option>
+                                        <option value="0">
+                                            condo
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Status:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            freezed
+                                        </option>
+                                        <option value="0">
+                                            removed
+                                        </option>
+                                        <option value="0">
+                                            pending
+                                        </option>
+                                        <option value="0">
+                                            open
+                                        </option>
+                                        <option value="0">
+                                            closed
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="profile_adds_title">
+                                    
+                                        <textarea class="form-control text_area" name="" id="">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa deleniti explicabo voluptates ab minima earum fuga a modi mollitia voluptas natus nesciunt quo eos quis, perferendis, quia placeat assumenda saepe.
+                                        </textarea>
+                                        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        price:
+                                    </span>
+                                    <input class="form-control" type="text" name="" id="" value="350 000">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Age:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            less than 5 years
+                                        </option>
+                                        <option value="0">
+                                            new
+                                        </option>
+                                        <option value="0">
+                                            less than 10 years
+                                        </option>
+                                        <option value="0">
+                                            more than 10 years
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Location:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            area1
+                                        </option>
+                                        <option value="0">
+                                           area2
+                                        </option>
+                                        <option value="0">
+                                            area3
+                                        </option>
+                                        <option value="0">
+                                            area4
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Address:
+                                    </span>
+                                    <input class="form-control" type="text" name="" id="" value="07 Baker street,  New York, 12345678910, USA">
+                                </div>
+                            </div>
+                                
+                            
+                        </div>
+                
+                        <div class="container-fluid">
+                            <div class="profile_adds_change_button">   
+                                <button type="submit" class="btn btn-md btn-primary">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    change
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                                   
+                    <a href="#profile_adds_images" data-toggle="collapse" class="images_toggle_anchor">
+                        <div class="images_toggle">
+                            <h4 class="">
+                                images
+                                <span class="glyphicon glyphicon-camera"></span>
+                                <span class="caret"></span>
+                            </h4>
+                        </div>
+                    </a>
+                    
+                    <div class="collapse" id="profile_adds_images">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="profile_adds_image_wrapper">
+                                        <img class="profile_adds_image" src="images/img3.jpg" alt="profile_adds_image">
+                                        <div class="profile_adds_image_text">
+                                            <form class="" action="" method="post">
+                                                <button type="submit" class="btn btn-md btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="profile_adds_image_wrapper">
+                                        <img class="profile_adds_image" src="images/img7.jpg" alt="profile_adds_image">
+                                        <div class="profile_adds_image_text">
+                                            <form class="" action="" method="post">
+                                                <button type="submit" class="btn btn-md btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="profile_adds_image_wrapper">
+                                        <img class="profile_adds_image" src="images/img4.jpg" alt="profile_adds_image">
+                                        <div class="profile_adds_image_text">
+                                            <form class="" action="" method="post">
+                                                <button type="submit" class="btn btn-md btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="profile_adds_image_wrapper">
+                                        <img class="profile_adds_image" src="images/img4.jpg" alt="profile_adds_image">
+                                        <div class="profile_adds_image_text">
+                                            <form class="" action="" method="post">
+                                                <button type="submit" class="btn btn-md btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <form class="form-group" action="" method="post">
+                                        <input type="file" class="form-control" name="" id="" placeholder="add image...">
+                                        <button type="submit" class="btn btn-md btn-primary">
+                                            <span class="glyphicon glyphicon-picture"></span>
+                                            add image
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+<!-- end single adds of user-->
+
+<!--creating new adds-->
+            <div class="container-fluid adds_block02">
+
+                <a href="#profile_form02" data-toggle="collapse" class="images_toggle_anchor">
+                    <div class="images_toggle">
+                        <h4 class="">
+                            create new adds
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="caret"></span>
+                        </h4>
+                    </div>
+                </a>
+
+
+                <div id="profile_form02" class="collapse">
+                    <form class="form-group" action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                                    
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        title:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            1 bed
+                                        </option>
+                                        <option value="0">
+                                            2 beds
+                                        </option>
+                                        <option value="0">
+                                            3 beds
+                                        </option>
+                                        <option value="0">
+                                            4 beds
+                                        </option>
+                                        <option value="0">
+                                        more than 4 beds
+                                        </option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        category:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            sell
+                                        </option>
+                                        <option value="0">
+                                            buy
+                                        </option>
+                                        <option value="0">
+                                            change
+                                        </option>
+                                        <option value="0">
+                                            rent
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Kind:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            apartment
+                                        </option>
+                                        <option value="0">
+                                            house
+                                        </option>
+                                        <option value="0">
+                                            penthouse
+                                        </option>
+                                        <option value="0">
+                                            condo
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Status:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            freezed
+                                        </option>
+                                        <option value="0">
+                                            removed
+                                        </option>
+                                        <option value="0">
+                                            pending
+                                        </option>
+                                        <option value="0">
+                                            open
+                                        </option>
+                                        <option value="0">
+                                            closed
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="profile_adds_title">
+                                    
+                                        <textarea class="form-control text_area" name="" id="">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa deleniti explicabo voluptates ab minima earum fuga a modi mollitia voluptas natus nesciunt quo eos quis, perferendis, quia placeat assumenda saepe.
+                                        </textarea>
+                                        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        price:
+                                    </span>
+                                    <input class="form-control" type="text" name="" id="" value="350 000">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Age:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            less than 5 years
+                                        </option>
+                                        <option value="0">
+                                            new
+                                        </option>
+                                        <option value="0">
+                                            less than 10 years
+                                        </option>
+                                        <option value="0">
+                                            more than 10 years
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                       Location:
+                                    </span>
+                                    <select class="form-control" name="" id="">
+                                        <option value="5">
+                                            area1
+                                        </option>
+                                        <option value="0">
+                                            area2
+                                        </option>
+                                        <option value="0">
+                                            area3
+                                        </option>
+                                        <option value="0">
+                                            area4
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        Address:
+                                    </span>
+                                    <input class="form-control" type="text" name="" id="" value="Example: 07 Baker street,  New York, 12345678910, USA">
+                                </div>
+                            </div>
+                                
+                            
+                        </div>
+                
+                        <div class="container-fluid">
+                            <div class="profile_adds_change_button">   
+                                <button type="submit" class="btn btn-md btn-primary">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    Create
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+<!-- end creating new adds-->
+           
+        </section>
+        <section class="footer_part" id="footer_part">
+            <div class="footer_wrapper">
+                <div class="inner_footer_wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h4>title001</h4>
+                            
+                            <p style="text-align: justify;">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id magnam commodi architecto soluta, est aperiam numquam voluptates. Nostrum ullam, omnis commodi et accusantium molestias, error repellendus iusto quas atque laudantium!
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h4>title001</h4>
+                            
+                            <p style="text-align: justify;">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id magnam commodi architecto soluta, est aperiam numquam voluptates. Nostrum ullam, omnis commodi et accusantium molestias, error repellendus iusto quas atque laudantium!
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <h4>title001</h4>
+                                
+                                <p style="text-align: justify;">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id magnam commodi architecto soluta, est aperiam numquam voluptates. Nostrum ullam, omnis commodi et accusantium molestias, error repellendus iusto quas atque laudantium!
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <div class="copyright_inner">
+                        Since 2020. &copy; All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> 
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>   
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

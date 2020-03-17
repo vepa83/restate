@@ -12,3 +12,5 @@ django-allauth
 stripe
 django-simple-captcha
 django-bootstrap3
+django-cleanup
+easy-thumbnails

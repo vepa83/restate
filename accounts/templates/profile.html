@@ -18,7 +18,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="{% url 'items:home_url' %}">House-Agenda</a>
+                            <a class="navbar-brand" href="{% url 'items:home_url' %}">Elitka</a>
                         </div>
         
                         <div class="collapse navbar-collapse" id="mymenu">
@@ -28,31 +28,31 @@
                                 <li class="active">
                                     <a href="{% url 'accounts:profile' %}">
                                         <span class="sr-only">(current)</span>
-                                        Profile
+                                        Profil
                                     </a>
                                 </li>
-                                <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                                <li><a href="{% url 'accounts:logout' %}">Çyk</a></li>
                                 {% else %}
-                                <li><a href="{% url 'accounts:register_url' %}">Register </a></li>
-                                <li><a href="{% url 'accounts:login_url' %}">Login </a></li>
+                                <li><a href="{% url 'accounts:register_url' %}">Registrasiýa </a></li>
+                                <li><a href="{% url 'accounts:login_url' %}">Gir </a></li>
                                 {% endif %}
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false" href="#">Kind
+                                        aria-expanded="false" href="#">Görnüş
                                         <span class="caret"></span>
                                         
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{% url 'items:kind_filter_url' 'apartment' %}">apartment</a></li>
-                                        <li><a href="{% url 'items:kind_filter_url' 'house' %}">house</a></li>
-                                        <li><a href="{% url 'items:kind_filter_url' 'penthouse' %}">penthouse</a></li>
-                                        <li><a href="{% url 'items:kind_filter_url' 'condo' %}">condo</a></li>
-                                        <li><a href="{% url 'items:kind_filter_url' 'studio' %}">studio</a></li>
+                                        <li><a href="{% url 'items:kind_filter_url' 'apartment' %}">kwartira</a></li>
+                                        <li><a href="{% url 'items:kind_filter_url' 'house' %}">jaý</a></li>
+                                        <li><a href="{% url 'items:kind_filter_url' 'penthouse' %}">daça</a></li>
+                                        <li><a href="{% url 'items:kind_filter_url' 'condo' %}">mellek</a></li>
+                                        <li><a href="{% url 'items:kind_filter_url' 'studio' %}">magazin</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false" href="#">Location
+                                        aria-expanded="false" href="#">Mekan
                                         <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -64,14 +64,14 @@
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false" href="#">Category
+                                        aria-expanded="false" href="#">Kategoriýa
                                         <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">sell</a></li>
-                                        <li><a href="#">buy</a></li>
-                                        <li><a href="#">change</a></li>
-                                        <li><a href="#">rent</a></li>
+                                        <li><a href="#">satylýar</a></li>
+                                        <li><a href="#">alynýar</a></li>
+                                        <li><a href="#">çalşylýar</a></li>
+                                        <li><a href="#">arenda</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -84,8 +84,8 @@
                     <div class="text_on_header_image_inner">
                     
                         <div style="padding-top: 15px; padding-right: 30px;">                   
-                            <p>You registered as <span style="color:red;">{{user.username}}</span></p>
-                            <p>Your publick name is <span style="color:red;">{{user.additional.name}}</span></p>
+                            <p>Siziň registrasiýadaky adyňyz <span style="color:#29e429; font-weight:bold;">{{user.username}}</span></p>
+                            <p>Siziň aýan adyňyz <span style="color:#29e429; font-weight:bold;">{{user.additional.name}}</span></p>
                         </div>
 
                     </div>
@@ -103,7 +103,7 @@
         <section class="content_part">
             <!-- ads list of user-->
             <div class="container-fluid adds_block02">
-                <h3>My ads</h3>
+                <h3>Meniň bildirişlerim</h3>
             {% for item in item_list %}
                 
                 <a href="#profile_form{{item.id}}" data-toggle="collapse" class="images_toggle_anchor">
@@ -116,7 +116,7 @@
                 </a>
                 <a href="{% url 'items:delete_item' item.id %}">
                     <div class="profile_item_delete">
-                        delete
+                        öçür
                     </div>
                 </a>
                 <div class="dummy"></div>
@@ -130,38 +130,38 @@
             
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        rooms:
+                                        otaglar:
                                     </span>
                                     <select class="form-control" name="rooms" id="">
                                         
                                         {% if item.room == 'one bedroom' %}
-                                        <option value="one bedroom" selected>one bedroom</option>
+                                        <option value="one bedroom" selected>bir otagly</option>
                                         {% else %}
-                                        <option value="one bedroom">one bedroom</option>
+                                        <option value="one bedroom">bir otagly</option>
                                         {% endif %}
                                             
                                         {% if item.room == 'two bedrooms' %}
-                                        <option value="two bedrooms" selected>two bedrooms</option>
+                                        <option value="two bedrooms" selected>iki otagly</option>
                                         {% else %}
-                                        <option value="two bedrooms">two bedrooms</option>
+                                        <option value="two bedrooms">iki otagly</option>
                                         {% endif %}
 
                                         {% if item.room == 'three bedrooms' %}
-                                        <option value="three bedrooms" selected>three bedrooms</option>
+                                        <option value="three bedrooms" selected>üç otagly</option>
                                         {% else %}
-                                        <option value="three bedrooms">three bedrooms</option>
+                                        <option value="three bedrooms">üç otagly</option>
                                         {% endif %}
 
                                         {% if item.room == 'four bedrooms' %}
-                                        <option value="four bedrooms" selected>four bedrooms</option>
+                                        <option value="four bedrooms" selected>dört otagly</option>
                                         {% else %}
-                                        <option value="four bedrooms">four bedrooms</option>
+                                        <option value="four bedrooms">dört otagly</option>
                                         {% endif %}
                                         
                                         {% if item.room == 'more than 4 bedrooms' %}
-                                        <option value="more than 4 bedrooms" selected>more than 4 bedrooms</option>
+                                        <option value="more than 4 bedrooms" selected>4-den köp otagly</option>
                                         {% else %}
-                                        <option value="more than 4 bedrooms">more 4 than bedrooms</option>
+                                        <option value="more than 4 bedrooms">4-den köp otagly</option>
                                         {% endif %}
                                         
                                     </select>
@@ -172,45 +172,45 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        category:
+                                        Kategoriýa:
                                     </span>
                                     <select class="form-control" name="category" id="">
                                         {% if item.category == 'sell' %}
                                         <option value="sell" selected>
-                                            sell
+                                            satylýar
                                         </option>
                                         {% else %}
                                         <option value="sell">
-                                            sell
+                                            satylýar
                                         </option>
                                         {% endif %}
                                             
                                         {% if item.category == 'buy' %}
                                         <option value="buy" selected>
-                                            buy
+                                            alynýar
                                         </option>
                                         {% else %}
                                         <option value="buy">
-                                            buy
+                                            alynýar
                                         </option>
                                         {% endif %}
                                        
                                         {% if item.category == 'change' %}
                                         <option value="change" selected>
-                                            change
+                                            çalşylýar
                                         </option>
                                         {% else %}
                                         <option value="change">
-                                            change
+                                            çalşylýar
                                         </option>
                                         {% endif %}
                                         {% if item.category == 'rent' %}
                                         <option value="rent" selected>
-                                            rent
+                                            arenda
                                         </option>
                                         {% else %}
                                         <option value="rent">
-                                            rent
+                                            arenda
                                         </option>
                                         {% endif %}
                                     </select>
@@ -219,37 +219,37 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Kind:
+                                        Görnüş:
                                     </span>
                                     <select class="form-control" name="kind" id="">
                                         {% if item.kind == 'apartment' %}
-                                        <option value="apartment" selected>apartment</option>
+                                        <option value="apartment" selected>kwartira</option>
                                         {% else %}
-                                        <option value="apartment">apartment</option>
+                                        <option value="apartment">kwartira</option>
                                         {% endif %}
                                         
                                         {% if item.kind == 'house' %}
-                                        <option value="house" selected>house</option>
+                                        <option value="house" selected>jaý</option>
                                         {% else %}
-                                        <option value="house">house</option>
+                                        <option value="house">jaý</option>
                                         {% endif %}
                                         
                                         {% if item.kind == 'penthouse' %}
-                                        <option value="penthouse" selected>penthouse</option>
+                                        <option value="penthouse" selected>daça</option>
                                         {% else %}
-                                        <option value="penthouse">penthouse</option>
+                                        <option value="penthouse">daça</option>
                                         {% endif %}
                                         
                                         {% if item.kind == 'condo' %}
-                                        <option value="condo" selected>condo</option>
+                                        <option value="condo" selected>mellek</option>
                                         {% else %}
-                                        <option value="condo">condo</option>
+                                        <option value="condo">mellek</option>
                                         {% endif %}
                                         
                                         {% if item.kind == 'studio' %}
-                                        <option value="studio" selected>studio</option>
+                                        <option value="studio" selected>magazin</option>
                                         {% else %}
-                                        <option value="studio">studio</option>
+                                        <option value="studio">magazin</option>
                                         {% endif %}
                                     </select>
                                 </div>
@@ -262,19 +262,19 @@
                                     <select class="form-control" name="status" id="">
                                         
                                         {% if item.status == 'pending' %}
-                                        <option value="pending">pending</option>
+                                        <option value="pending">garaşmakda</option>
                                         {% elif item.status == 'open' %}
-                                        <option value="open" selected>open</option>
-                                        <option value="closed">closed</option>
-                                        <option value="frozen">frozen</option>
+                                        <option value="open" selected>açyk</option>
+                                        <option value="closed">ýapyk</option>
+                                        <option value="frozen">doňdurylan</option>
                                         {% elif item.status == 'frozen' %}
-                                        <option value="open">open</option>
-                                        <option value="closed">closed</option>
-                                        <option value="frozen" selected>frozen</option>
+                                        <option value="open">açyk</option>
+                                        <option value="closed">ýapyk</option>
+                                        <option value="frozen" selected>doňdurylan</option>
                                         {% elif item.status == 'closed' %}
-                                        <option value="open">open</option>
-                                        <option value="closed" selected>closed</option>
-                                        <option value="frozen">frozen</option>                                   
+                                        <option value="open">açyk</option>
+                                        <option value="closed" selected>ýapyk</option>
+                                        <option value="frozen">doňdurylan</option>                                   
                                         {% endif %}
                                             
                                     </select>
@@ -284,14 +284,14 @@
                                 <div class="profile_adds_description">
                                     
                                     {% if item.title == '' %}
-                                    <input class="form-control" type="text" name="title" id="" value="title">
+                                    <input class="form-control" type="text" name="title" id="" value="ady">
                                     {% else %}
                                     <input class="form-control" type="text" name="title" id="" value="{{item.title}}">
                                     {% endif %}
                                     
                                     
                                     {% if item.description == '' %}
-                                    <textarea class="form-control text_area" name="description" id="">description</textarea>
+                                    <textarea class="form-control text_area" name="description" id="">beýany</textarea>
                                     {% else %}
                                     <textarea class="form-control text_area" name="description" id="">{{item.description}}</textarea>
                                     {% endif %}
@@ -304,7 +304,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        price:
+                                        bahasy:
                                     </span>
                                     <input class="form-control" type="text" name="price" id="" value="{{item.price}}">
                                 </div>
@@ -312,38 +312,38 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Age:
+                                        Ýaşy:
                                     </span>
                                     <select class="form-control" name="age" id="">
                                         
                                         {% if item.age == 'new' %}
-                                        <option value="new" selected>new</option>
+                                        <option value="new" selected>täze</option>
                                         {% else %}
-                                        <option value="new">new</option>   
+                                        <option value="new">täze</option>   
                                         {% endif %}
 
                                         {% if item.age == 'less than 5 years' %}
-                                        <option value="less than 5 years" selected>less than 5 years</option>
+                                        <option value="less than 5 years" selected>5 ýyldan az</option>
                                         {% else %}
-                                        <option value="less than 5 years">less than 5 years</option>
+                                        <option value="less than 5 years">5 ýyldan az</option>
                                         {% endif %}
                                             
                                         {% if item.age == 'less than 10 years' %}
-                                        <option value="less than 10 years" selected>less than 10 years</option>
+                                        <option value="less than 10 years" selected>10 ýyldan az</option>
                                         {% else %}
-                                        <option value="less than 10 years">less than 10 years</option>
+                                        <option value="less than 10 years">10 ýyldan az</option>
                                         {% endif %}
                                         
                                         {% if item.age == 'more than 10 years' %}
-                                        <option value="more than 10 years" selected>more than 10 years</option>
+                                        <option value="more than 10 years" selected>20 ýyldan az</option>
                                         {% else %}
-                                        <option value="more than 10 years">more than 10 years</option>
+                                        <option value="more than 10 years">20 ýyldan az</option>
                                         {% endif %}
                                         
                                         {% if item.age == 'more than 20 years' %}
-                                        <option value="more than 20 years" selected>more than 20 years</option>
+                                        <option value="more than 20 years" selected>20 ýyldan köp</option>
                                         {% else %}
-                                        <option value="more than 20 years">more than 20 years</option>
+                                        <option value="more than 20 years">20 ýyldan köp</option>
                                         {% endif %}
                                         
                                     </select>
@@ -352,7 +352,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Location:
+                                        Mekan:
                                     </span>
                                     <select class="form-control" name="location" id="">
                                         
@@ -375,7 +375,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Address:
+                                        Adres:
                                     </span>
                                     <input class="form-control" type="text" name="address" id="" value="{{item.address}}">
                                 </div>
@@ -389,7 +389,7 @@
                             <div class="profile_adds_change_button">
                                 <button type="submit" class="btn btn-md btn-primary">
                                     <span class="glyphicon glyphicon-pencil"></span>
-                                    Update
+                                    Üýtget
                                 </button>
                             </div>
                         </div>
@@ -399,7 +399,7 @@
                     <a href="#profile_adds_images{{item.id}}" data-toggle="collapse" class="images_toggle_anchor">
                         <div class="images_toggle">
                             <h4 class="">
-                                images
+                                suratlary
                                 <span class="glyphicon glyphicon-camera"></span>
                                 <span class="caret"></span>
                             </h4>
@@ -422,7 +422,7 @@
                                                     {% csrf_token %}
                                                     <button type="submit" class="btn btn-md btn-danger">
                                                         <span class="glyphicon glyphicon-trash"></span>
-                                                        delete
+                                                        öçür
                                                     </button>
                                                 </form>
                                             </div>
@@ -439,11 +439,11 @@
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                     <form class="form-group" action="{% url 'accounts:addimage_url' item.id %}" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                        <input type="text" class="form-control" name="alt" id="" placeholder="describe in two words...">
-                                        <input type="file" class="form-control" name="image" id="" placeholder="add image...">
+                                        <input type="text" class="form-control" name="alt" id="" placeholder="iki söz bilen beýan et">
+                                        <input type="file" class="form-control" name="image" id="" placeholder="surat goş...">
                                         <button type="submit" class="btn btn-md btn-primary">
                                             <span class="glyphicon glyphicon-picture"></span>
-                                            add image
+                                            surat goş
                                         </button>
                                     </form>
                                 </div>
@@ -461,7 +461,7 @@
         
             <!--creating new adds-->
             <div class="container-fluid adds_block02">
-                <h3>Create new ad</h3>
+                <h3>Täze bildiriş goş</h3>
                
             
                 <a href="#profile_form{{item.id}}" data-toggle="collapse" class="images_toggle_anchor">
@@ -469,7 +469,7 @@
                         <span class="">
                             <span class="caret"></span>
                             <span class="glyphicon glyphicon-file"></span>
-                            <span>create new ad</span>
+                            <span>täze bildiriş goş</span>
             
             
                         </span>
@@ -484,24 +484,24 @@
             
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        rooms:
+                                        otaglar:
                                     </span>
                                     <select class="form-control" name="rooms" id="">
                                         
                                         <option value="one bedroom">
-                                            one bedroom
+                                            bir otagly
                                         </option>
                                         <option value="two bedrooms">
-                                            two bedrooms
+                                            iki otagly
                                         </option>
                                         <option value="three bedrooms">
-                                            three bedrooms
+                                            üç otagly
                                         </option>
                                         <option value="four bedrooms">
-                                            four bedrooms
+                                            dört otagly
                                         </option>
                                         <option value="more than 4 bedrooms">
-                                            more than 4 bedrooms
+                                            4-den köp otagly
                                         </option>
                                     </select>
                                 </div>
@@ -511,21 +511,21 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        category:
+                                        Kategoriýa:
                                     </span>
                                     <select class="form-control" name="category" id="">
                                         
                                         <option value="sell">
-                                            sell
+                                            satylýar
                                         </option>
                                         <option value="buy">
-                                            buy
+                                            alynýar
                                         </option>
                                         <option value="change">
-                                            change
+                                            çalşylýar
                                         </option>
                                         <option value="rent">
-                                            rent
+                                            arenda
                                         </option>
                                     </select>
                                 </div>
@@ -533,24 +533,24 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Kind:
+                                        Görnüş:
                                     </span>
                                     <select class="form-control" name="kind" id="">
                                         
                                         <option value="apartment">
-                                            apartment
+                                            kwartira
                                         </option>
                                         <option value="house">
-                                            house
+                                            jaý
                                         </option>
                                         <option value="penthouse">
-                                            penthouse
+                                            daça
                                         </option>
                                         <option value="condo">
-                                            condo
+                                            mellek
                                         </option>
                                         <option value="studio">
-                                            studio
+                                            magazin
                                         </option>
                                     </select>
                                 </div>
@@ -561,14 +561,14 @@
                                         Status:
                                     </span>
                                     <select class="form-control" name="status" id="">
-                                        <option value="open">open</option>
+                                        <option value="open">açyk</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="profile_adds_description">
-                                    <input class="form-control" type="text" name="title" id="" value="type title">
-                                    <textarea class="form-control text_area" name="description" id="">type description</textarea>
+                                    <input class="form-control" type="text" name="title" id="" value="adyny ýaz">
+                                    <textarea class="form-control text_area" name="description" id="">beýany</textarea>
             
             
                                 </div>
@@ -579,31 +579,31 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        price:
+                                        bahasy:
                                     </span>
-                                    <input class="form-control" type="text" name="price" id="" placeholder="e.g.: 350000">
+                                    <input class="form-control" type="text" name="price" id="" placeholder="meselem: 350000">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Age:
+                                        Ýaşy:
                                     </span>
                                     <select class="form-control" name="age" id="">
                                         <option value="new">
-                                            new
+                                            täze
                                         </option>
                                         <option value="less than 5 years" selected>
-                                            less than 5 years
+                                            5 ýyldan az
                                         </option>
                                         <option value="less than 10 years">
-                                            less than 10 years
+                                            10 ýyldan az
                                         </option>
                                         <option value="more than 10 years">
-                                            more than 10 years
+                                            20 ýyldan az
                                         </option>
                                         <option value="more than 20 years">
-                                            more than 20 years
+                                            20 ýyldan köp
                                         </option>
                                     </select>
                                 </div>
@@ -611,7 +611,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Location:
+                                        Mekan:
                                     </span>
                                     <select class="form-control" name="location" id="">
                                         
@@ -626,9 +626,9 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        Address:
+                                        Adres:
                                     </span>
-                                    <input class="form-control" type="text" name="address" id="" placeholder="address of ad">
+                                    <input class="form-control" type="text" name="address" id="" placeholder="emlägiň ýerleşýän ýeri">
                                 </div>
                                 <input type="hidden" name="user" value="{{user.id}}">
                             </div>
@@ -640,7 +640,7 @@
                             <div class="profile_adds_change_button">
                                 <button type="submit" class="btn btn-md btn-primary">
                                     <span class="glyphicon glyphicon-pencil"></span>
-                                    Create
+                                    Döret
                                 </button>
                             </div>
                         </div>
@@ -654,13 +654,13 @@
             <!-- end creating new adds-->
 
             <div class="container-fluid adds_block02">
-                <h3>Liked ads</h3>
+                <h3>Halanan bildirişler</h3>
                 <a href="#profile_likes" data-toggle="collapse" class="images_toggle_anchor">
                     <div class="images_toggle">
                         <span class="">
                             <span class="caret"></span>
                             <span class="glyphicon glyphicon-heart"></span>
-                            <span>liked item list</span>
+                            <span>Halanan bildirişler spisogy</span>
                         </span>
                     </div>
                 </a>
@@ -678,13 +678,13 @@
             </div>
             <!--personal info -->
                 <div class="container-fluid adds_block02">
-                    <h3>Personal info</h3>
+                    <h3>Hemmelere görünýän özüm hakda maglumat</h3>
                     <a href="#profile_info" data-toggle="collapse" class="images_toggle_anchor">
                         <div class="images_toggle">
                             <span class="">
                                 <span class="caret"></span>
                                 <span class="glyphicon glyphicon-user"></span>
-                                <span>personal info</span>
+                                <span>Özüm hakda maglumat</span>
                             </span>
                         </div>
                     </a>
@@ -697,7 +697,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            Name:
+                                            Adym:
                                         </span>
                                         <input class="form-control" type="text" name="name" value="{{additional_info.name}}">
                                     </div>
@@ -713,7 +713,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            telephone:
+                                            telefon:
                                         </span>
                                         <input class="form-control" type="text" name="telephone" value="{{additional_info.telephone}}">
                                     </div>
@@ -723,7 +723,7 @@
                                 <div class="profile_adds_change_button">
                                     <button type="submit" class="btn btn-md btn-primary">
                                         <span class="glyphicon glyphicon-pencil"></span>
-                                        Update
+                                        Üýtget
                                     </button>
                                 </div>
                             </div>
@@ -735,9 +735,9 @@
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            Name:
+                                            Adym:
                                         </span>
-                                        <input class="form-control" type="text" name="name" placeholder="write your public name..">
+                                        <input class="form-control" type="text" name="name" placeholder="aýan adyňyzy ýazyň..">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -745,15 +745,15 @@
                                         <span class="input-group-addon">
                                             email:
                                         </span>
-                                        <input class="form-control" type="text" name="email" placeholder="write your public email..">
+                                        <input class="form-control" type="text" name="email" placeholder="aýan email ýazyň">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            telephone:
+                                            telefon:
                                         </span>
-                                        <input class="form-control" type="text" name="telephone" placeholder="write your public telephone..">
+                                        <input class="form-control" type="text" name="telephone" placeholder="aýan telefonyňyzy ýazyň">
                                     </div>
                                 </div>
                             </div>
@@ -761,7 +761,7 @@
                                 <div class="profile_adds_change_button">
                                     <button type="submit" class="btn btn-md btn-primary">
                                         <span class="glyphicon glyphicon-pencil"></span>
-                                        Create
+                                        Döret
                                     </button>
                                 </div>
                             </div>

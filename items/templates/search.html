@@ -1,0 +1,64 @@
+<div class="search_block">
+    <a href="#search_form_wrapper" class="search_toggle_anchor" data-toggle="collapse">
+        <h4 class="search_toggle">
+            <span class="glyphicon glyphicon-search"></span>
+            Gözleg
+            <span class="caret"></span>
+        </h4>
+    </a>
+    <div id="search_form_wrapper" class="collapse">
+        <form class="navbar-form" role="search" method="POST" action="{% url 'items:search_url' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="kind" id="" class="form-control">
+                    <option value="any" selected>islendik görnüş</option>
+                    <option value="apartment">kwartira</option>
+                    <option value="house">jaý</option>
+                    <option value="penthouse">daça</option>
+                    <option value="condo">mellek</option>
+                    <option value="studio">magazin</option>
+                </select>
+                <select name="room" id="" class="form-control">
+                    <option value="any" selected>islendik otagly</option>
+                    <option value="one bedroom">bir otagly</option>
+                    <option value="two bedrooms">iki otagly</option>
+                    <option value="three bedrooms">üç otagly</option>
+                    <option value="four bedrooms">dört otagly</option>
+                    <option value="more than 4 bedrooms">4-den köp otagly</option>
+                </select>
+                <select name="category" id="" class="form-control">
+                    <option value="any" selected>islendik kategoriýa</option>
+                    <option value="sell">satylýar</option>
+                    <option value="buy">alynýar</option>
+                    <option value="change">çalşylýar</option>
+                    <option value="rent">arenda</option>
+
+                </select>
+                <select name="age" id="" class="form-control">
+                    <option value="any" selected>Islendik ýaşda</option>
+                    <option value="new">täze</option>
+                    <option value="less than 5 years">5 ýyldan az</option>
+                    <option value="less than 10 years">10 ýyldan az</option>
+                    <option value="more than 10 years">20 ýyldan az</option>
+                    <option value="more than 20 years">20 ýyldan köp</option>
+                </select>
+                <select name="location" id="" class="form-control">
+                    <option value="any" selected>islendik mekan</option>
+                    
+                    {% for location in locations %}
+                        <option value="{{location.id}}">{{location.name}}</option>
+                    {% endfor %}
+                        
+                </select>
+                <select name="price_range" id="" class="form-control">
+                    <option value="any" selected>islendik bahada</option>
+                    <option value="max">iň gymmat</option>
+                    <option value="min">iň arzan</option>
+                </select>
+                <input type="text" class="form-control" name="price" placeholder="baha...">
+                <input type="text" class="form-control" name="text" placeholder="gözlemek üçin birzatlar ýaz!">
+                <input type="submit" value="başla" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>

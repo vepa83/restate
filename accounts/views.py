@@ -52,18 +52,20 @@ def ProfileView(request):
 def update_ad(request, ad_id):
     ad = Item.objects.get(id=ad_id)
     usr = request.user
-    room = request.POST['rooms']
-    kind = request.POST['kind']
+    room = strip_tags(request.POST['rooms'])
+    kind = strip_tags(request.POST['kind'])
     location2 = Location.objects.get(id=request.POST['location'])
     price = request.POST['price']
-    if price == '':
+    if price.isdigit():
+        price = price
+    else:
         price = '0'
-    status = request.POST['status']
-    address = request.POST['address']
-    age = request.POST['age']
-    description = request.POST['description']
-    title = request.POST['title']
-    category = request.POST['category']
+    status = strip_tags(request.POST['status'])
+    address = strip_tags(request.POST['address'])
+    age = strip_tags(request.POST['age'])
+    description = strip_tags(request.POST['description'])
+    title = strip_tags(request.POST['title'])
+    category = strip_tags(request.POST['category'])
         
     ad.title=title
     ad.room=room
@@ -87,19 +89,22 @@ def update_ad(request, ad_id):
 
 @login_required
 def create_adview(request):
-    room = request.POST['rooms']
-    kind = request.POST['kind']
+    room = strip_tags(request.POST['rooms'])
+    kind = strip_tags(request.POST['kind'])
     location = Location.objects.get(id=request.POST['location'])
-    price = request.POST['price']
-    if price == '':
+    price = strip_tags(request.POST['price'])
+    if price.isdigit():
+        price = price
+    else:
         price = '0'
-    status = request.POST['status']
-    address = request.POST['address']
-    age = request.POST['age']
-    title = request.POST['title']
-    description = request.POST['description']
-    category = request.POST['category']
-    usr = request.POST['user']
+    status = strip_tags(request.POST['status'])
+    address = strip_tags(request.POST['address'])
+    age = strip_tags(request.POST['age'])
+    title = strip_tags(request.POST['title'])
+    description = strip_tags(request.POST['description'])
+    description = description[:3000]
+    category = strip_tags(request.POST['category'])
+    usr = strip_tags(request.POST['user'])
     ad = Item(user_id=usr, room=room, kind=kind, location=location, price=price, status=status, address=address, age=age, title=title, description=description, category=category)
     ad.save()
     
@@ -111,7 +116,7 @@ def create_adview(request):
 @login_required
 def add_imageview(request, ad_id):
     image = request.FILES['image']
-    alt = request.POST['alt']
+    alt = strip_tags(request.POST['alt'])
     img = Image(alt=alt, image=image, item_id=ad_id)
     img.save()
     img2 = Image.objects.filter(item_id=ad_id).order_by('-id')
@@ -139,9 +144,13 @@ def delete_imageview(request, image_id):
 @login_required
 def update_profile(request):
     info = Additional.objects.get(user_id=request.user.id)
-    name = request.POST['name']
-    email = request.POST['email']
-    telephone = request.POST['telephone']
+    name = strip_tags(request.POST['name'])
+    email = strip_tags(request.POST['email'])
+    telephone = strip_tags(request.POST['telephone'])
+    if telephone.isdigit():
+        telephone = telephone
+    else:
+        telephone = "000"
     info.name=name
     info.email=email
     info.telephone=telephone
@@ -152,9 +161,13 @@ def update_profile(request):
 
 @login_required
 def create_profile(request):
-    name = request.POST['name']
-    email = request.POST['email']
-    telephone = request.POST['telephone']
+    name = strip_tags(request.POST['name'])
+    email = strip_tags(request.POST['email'])
+    telephone = strip_tags(request.POST['telephone'])
+    if telephone.isdigit():
+        telephone = telephone
+    else:
+        telephone = "000"
     info = Additional(user_id=request.user.id, name=name, email=email, telephone=telephone)
     info.save()
 

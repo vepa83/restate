@@ -1,0 +1,301 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+{% if chosen_category == 'sell' %}
+satylýar
+{% elif chosen_category == 'buy' %}
+alynýar
+{% elif chosen_category == 'change' %}
+çalşylýar
+{% elif chosen_category == 'rent' %}
+arenda
+{% endif %}
+{% endblock title %}
+
+{% block header %}
+<section class="header_part">
+    <div class="header_wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu"
+                        aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'items:home_url' %}">Elitka</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="mymenu">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'accounts:profile' %}">
+                                Profil
+                            </a>
+                        </li>
+                        <li><a href="{% url 'accounts:logout' %}">Çyk</a></li>
+                        {% else %}
+                        <li><a href="{% url 'accounts:register_url' %}">Registrasiýa </a></li>
+                        <li><a href="{% url 'accounts:login_url' %}">Gir </a></li>
+                        {% endif %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">
+                                Görnüş
+                                <span class="caret"></span>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'items:kind_filter_url' 'apartment' %}">kwartira</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'house' %}">jaý</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'penthouse' %}">daça</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'condo' %}">mellek</a></li>
+                                <li><a href="{% url 'items:kind_filter_url' 'studio' %}">magazin</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">Mekan
+                                <span class="caret"></span>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% for location in locations %}
+                                <li><a href="{% url 'items:location_filter_url' location.id %}">{{location.name}}</a></li>
+                                {% endfor %}
+
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false" href="#">Kategoriýa
+                                <span class="sr-only">(current)</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'items:category_filter_url' 'sell' %}">satylýar</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'buy' %}">alynýar</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'change' %}">çalşylýar</a></li>
+                                <li><a href="{% url 'items:category_filter_url' 'rent' %}">arenda</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- 
+                                <div class="text_on_header_image">
+                                    
+                                    <div class="text_on_header_image_inner">
+                                    
+                                        <div style="padding-top: 15px; padding-right: 30px;">                   
+                                            <p>"Proper house to live is happiness"</p>
+                                            <p>Someone Famous</p>
+                                        </div>
+                
+                                    </div>
+                
+                                </div>
+                -->
+    </div>
+    {% include 'search.html' %}
+</section>
+{% endblock header %}
+
+
+
+{% block content %}
+<section class="content_part">
+    <div class="container-fluid">
+        <div class="block_header">
+            <h4 class="block_header_title">
+                {% if chosen_category == 'sell' %}
+                satylýar
+                {% elif chosen_category == 'buy' %}
+                alynýar
+                {% elif chosen_category == 'change' %}
+                çalşylýar
+                {% elif chosen_category == 'rent' %}
+                arenda
+                {% endif %}
+                
+                {{amount}} sany bildiriş tapyldy</h4>
+        </div>
+
+        <div class="row">
+
+            {% for item in item_list %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <a href="{% url 'items:detail_url' item.id %}" class="adds_anchor">
+
+                    {% if item.is_vip == True %}
+                    <h4 class="vip">
+                        <span class="glyphicon glyphicon-star"></span>
+
+                        <!-- max 4 words -->
+                        {{item.title|truncatechars:18}}
+                    </h4>
+                    {% else %}
+                    <h4 class="nonvip">
+                        <!-- max 4 words -->
+                        {{item.title|truncatechars:18}}
+                    </h4>
+
+                    {% endif %}
+
+
+                </a>
+                <div class="main_image_wrapper">
+                    <div class="adds_image_thumb">
+
+                        {% for image in image_list %}
+
+                        {% if image.item_id == item.id %}
+                        <img class="adds_image_thumb_img" src="{{image.thumbnail.url}}" alt="{{image.alt}}">
+                        {% endif %}
+
+
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="on_thumb_text">
+
+                        <!-- max 3 words -->
+                        {% if item.category == 'sell' %}
+                        satylýar
+                        {% elif item.category == 'buy' %}
+                        alynýar
+                        {% elif item.category == 'change' %}
+                        çalşylýar
+                        {% elif item.category == 'rent' %}
+                        arenda
+                        {% endif %}
+                        ,
+                        {% if item.kind == 'apartment' %}
+                        kwartira
+                        {% elif item.kind == 'house' %}
+                        jaý
+                        {% elif item.kind == 'penthouse' %}
+                        daça
+                        {% elif item.kind == 'condo' %}
+                        mellek
+                        {% elif item.kind == 'studio' %}
+                        magazin
+                        {% endif %}
+                        ,
+                        {% if item.age == 'new' %}
+                        täze
+                        {% elif item.age == 'less than 5 years' %}
+                        5 ýyldan az
+                        {% elif item.age == 'less than 10 years' %}
+                        10 ýyldan az
+                        {% elif item.age == 'more than 10 years' %}
+                        20 ýyldan az
+                        {% elif item.age == 'more than 20 years' %}
+                        20 ýyldan köp
+                        {% endif %}
+                        </div>
+                        <div class="on_thumb_text2">
+                        
+                            <!-- max 3 words -->
+                            {% if item.room == 'one bedroom' %}
+                            1 otagly
+                            {% elif item.room == 'two bedrooms' %}
+                            2 otagly
+                            {% elif item.room == 'three bedrooms' %}
+                            3 otagly
+                            {% elif item.room == 'four bedrooms' %}
+                            4 otagly
+                            {% elif item.room == 'more than 4 bedrooms' %}
+                            4-den köp otagly
+                            {% endif %},
+                            {{item.price }} manat
+                    </div>
+                    <div class="like">
+
+                        {% if user.is_authenticated %}
+
+                        {% if item.has_like == 0 %}
+                        <div class="like_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% else %}
+                        <div class="liked_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="like_anchor" href="">
+                            <span class="glyphicon glyphicon-heart"></span>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <h5><span class="glyphicon glyphicon-map-marker"></span> {{item.location}}</h5>
+                <div class="adds_text_location">
+                    {{item.address}}
+                </div>
+                <h5><span class="glyphicon glyphicon-pencil"></span> {{item.title}}</h5>
+                <div class="adds_text_description">
+                    {{item.description}}
+                </div>
+                <h5 class="">
+                    <span class="glyphicon glyphicon-flag">
+                    </span>
+                    Status:
+
+                    {% if item.status == 'open' %}
+                    <span class="label label-success">
+                        açyk
+                    </span>
+                    {% elif item.status == 'closed' %}
+                    <span class="label label-danger">
+                        ýapyk
+                    </span>
+                    {% elif item.status == 'frozen' %}
+                    <span class="label label-primary">
+                        doňdurylan
+                    </span>
+                    {% endif %}
+
+
+                </h5>
+
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="block_pagination">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if page.has_previous %}
+                    <li>
+                        <a href="?page={{page.previous_page_number}}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    </li>
+                    {% endif %}
+
+                    <li><a href="#">{{page.number}}</a></li>
+
+                    {% if page.has_next %}
+                    <li>
+                        <a href="?page={{page.next_page_number}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+{% endblock content %}
