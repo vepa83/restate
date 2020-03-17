@@ -1,6 +1,6 @@
 folium
 psycopg2==2.8.4
-django==2.2.6
+django==2.2.10
 django-debug-toolbar==1.10.1
 python-decouple==3.1
 pytz==2019.3
